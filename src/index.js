@@ -3,9 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import HelloComponent from './component/HelloComponent';
+import StatefullComponent from './container/StatefullComponent';
+
 
 ReactDOM.render(
   <React.StrictMode>
+    <HelloComponent/>
+    <StatefullComponent/>
     <App />
   </React.StrictMode>,
   document.getElementById('root')

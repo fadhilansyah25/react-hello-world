@@ -30,10 +30,14 @@ p.time {
 }
 
 p.title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     text-transform: capitalize;
     margin: 0px;
     margin-top: 10px;
     color: #2d2d2d;
+}
+
+p.desc {
+    font-size: 10px;
 }

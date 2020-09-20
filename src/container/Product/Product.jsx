@@ -21,10 +21,22 @@ export class Product extends Component {
         if (this.state.order > 0) {
             this.setState({
                 order: this.state.order - 1
-            },() => {
+            }, () => {
                 this.handleCounterChange(this.state.order)
             })
         }
+    }
+
+    handleInputChange = (e) => {
+        let value = parseInt(e.target.value);
+        if (isNaN(value)) {
+            value = 0
+        }
+        this.setState({
+            order: value
+        }, () => {
+            this.handleCounterChange(this.state.order)
+        })
     }
 
     render() {
@@ -41,7 +53,7 @@ export class Product extends Component {
                             <p className="count">{this.state.order}</p>
                             <div className="row">
                                 <button type="button" className="btn btn-primary button-minus col-2" onClick={this.handleMinus}>-</button>
-                                <input type="text" name="" id="" className="col" value={this.state.order} style={{ textAlign: 'center' }} />
+                                <input type="text" name="" id="" className="col" value={this.state.order} style={{ textAlign: 'center' }} onChange={this.handleInputChange} />
                                 <button type="button" className="btn btn-primary button-plus col-2" onClick={this.handlePlus}>+</button>
                             </div>
                         </div>

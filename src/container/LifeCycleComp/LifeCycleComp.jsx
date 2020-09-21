@@ -16,16 +16,22 @@ export default class LifeCycleComp extends Component {
 
     componentDidMount() {
         console.log('componentDidMount');
-        setTimeout(() => {
-            this.setState({
-                count: 2
-            });
-        }, 3000);
+        // setTimeout(() => {
+        //     this.setState({
+        //         count: 2
+        //     });
+        // }, 3000);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log('shouldComponentUpdate');
-        return true;
+        console.log('next State', nextState);
+        console.log('this State', this.state);
+        if (nextState.count > 5) {
+            return false;
+        }else {
+            return true;
+        }
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -41,10 +47,16 @@ export default class LifeCycleComp extends Component {
         console.log('componentWillUnmount');
     }
 
+    changeCount = () => {
+        this.setState({
+            count : this.state.count + 1
+        })
+    }
+
     render() {
         console.log('render');
         return (
-            <button className="btn btn-primary">Component Button{this.state.count}</button>
+            <button className="btn btn-primary" onClick={this.changeCount}>Component Button {this.state.count}</button>
         )
     }
 }

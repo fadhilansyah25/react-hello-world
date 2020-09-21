@@ -4,6 +4,18 @@ import React, { Component } from 'react'
 import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
 
 export class Home extends Component {
+    state = {
+        showComponent: true
+    }
+
+    componentDidMount() {
+        // setTimeout(() => {
+        //     this.setState({
+        //         showComponent: false
+        //     })
+        // }, 6000)
+    }
+
     render() {
         return (
             <div>
@@ -37,7 +49,9 @@ export class Home extends Component {
                     image="https://images.unsplash.com/photo-1551669850-26e6f40757e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" />
                 <YoutubeComp /> */}
                 <p>Life Cycle Component</p>
-                <LifeCycleComp/>
+                {
+                    this.state.showComponent ? <LifeCycleComp /> : null
+                }
             </div>
         )
     }

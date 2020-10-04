@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 // import YoutubeComp from '../../component/YoutubeComp/YoutubeComp';
 // import Navbar from '../../component/Navbar';
-import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
+// import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
+import BlogPost from '../../component/BlogPost/BlogPost';
 
 export class Home extends Component {
     state = {
@@ -48,10 +49,13 @@ export class Home extends Component {
                     desc="900x ditonton. 5 hari yang lalu"
                     image="https://images.unsplash.com/photo-1551669850-26e6f40757e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" />
                 <YoutubeComp /> */}
-                <p>Life Cycle Component</p>
+                {/* <p>Life Cycle Component</p>
                 {
                     this.state.showComponent ? <LifeCycleComp /> : null
-                }
+                } */}
+                <p>Blog Post</p> 
+                <hr/>
+                <BlogPost></BlogPost>
             </div>
         )
     }

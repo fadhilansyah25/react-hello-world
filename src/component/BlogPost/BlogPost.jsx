@@ -18,7 +18,7 @@ export default class BlogPost extends Component {
         //         console.log(this.state.post.slice(0, 10));
         //     })
 
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('http://localhost:3004/posts')
         .then(response => {
             this.setState({
                 post: response.data,
@@ -31,7 +31,7 @@ export default class BlogPost extends Component {
         return (
             <div className="container d-flex flex-wrap">
                 {
-                    this.state.post.slice(0, 8).map(post => {
+                    this.state.post.map(post => {
                         return <Post key={post.id} title={post.title} desc={post.body} />
                     })
                 }

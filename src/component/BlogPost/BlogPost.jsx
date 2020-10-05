@@ -17,22 +17,30 @@ export default class BlogPost extends Component {
         //         });
         //         console.log(this.state.post.slice(0, 10));
         //     })
+        this.getPostAPI();
+    }
 
+    handleRemove = (data) => {
+        axios.delete(`http://localhost:3004/posts/${data}`).then(res => {
+            this.getPostAPI()
+        })
+    }
+
+    getPostAPI = () => {
         axios.get('http://localhost:3004/posts')
-        .then(response => {
-            this.setState({
-                post: response.data,
+            .then(response => {
+                this.setState({
+                    post: response.data,
+                });
             });
-            console.log(response);
-        });
     }
 
     render() {
         return (
             <div className="container d-flex flex-wrap">
                 {
-                    this.state.post.map(post => {
-                        return <Post key={post.id} title={post.title} desc={post.body} />
+                    this.state.post.slice(0, 8).map(post => {
+                        return <Post key={post.id} data={post} remove={this.handleRemove} />
                     })
                 }
             </div>

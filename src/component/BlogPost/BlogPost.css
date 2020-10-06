@@ -6,3 +6,10 @@
     width: 10rem;
     margin: 20px 15px;
 }
+
+.form-section {
+    width: 40%;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(164, 164, 164, 0.313);
+}

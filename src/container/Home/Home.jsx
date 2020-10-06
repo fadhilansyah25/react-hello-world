@@ -55,7 +55,9 @@ export class Home extends Component {
                 } */}
                 <p>Blog Post</p> 
                 <hr/>
+                <div className="container">
                 <BlogPost></BlogPost>
+                </div>
             </div>
         )
     }

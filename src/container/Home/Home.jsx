@@ -19,7 +19,7 @@ export class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 {/* <Navbar/> */}
                 {/* <h1>Youtube Component</h1>
                 <hr />
@@ -53,9 +53,9 @@ export class Home extends Component {
                 {
                     this.state.showComponent ? <LifeCycleComp /> : null
                 } */}
-                <p>Blog Post</p> 
+                <h1>Blog Post</h1> 
                 <hr/>
-                <div className="container">
+                <div>
                 <BlogPost></BlogPost>
                 </div>
             </div>

@@ -44,20 +44,35 @@ export default class BlogPost extends Component {
 
     handleFormChange = (event) => {
         let formBlogPostNew = {...this.state.formBlogPost};
-        console.log(event.target.name);
+        let timestamp  = new Date().getTime();
+
+        formBlogPostNew['id'] = timestamp;
         formBlogPostNew[event.target.name] = event.target.value;
 
         this.setState({
             formBlogPost: formBlogPostNew
-        },() => {
-            console.log(this.state.formBlogPost)
         });
+    }
+
+    handleClickSubmit = () => {
+        console.log(this.state.formBlogPost);
+        this.postDataToAPI();
+    }
+
+    postDataToAPI = () => {
+        axios.post('http://localhost:3004/posts', this.state.formBlogPost )
+        .then((res) => {
+            console.log(res);
+            // this.getPostAPI();
+        }, (err) => {
+            console.log('error : ', err);
+        })
     }
 
     render() {
         return (
             <Fragment>
-                <div className="form-section mb-5">
+                <div className="form-section mb-5 mx-auto">
                     <form>
                         <div className="form-group mb-3">
                             <label htmlFor="title" className="mb-1">Title</label>
@@ -67,12 +82,12 @@ export default class BlogPost extends Component {
                             <label htmlFor="body" className="mb-1">Blog Content</label>
                             <textarea className="form-control" name="body" rows="10" placeholder="Add Blog Content" onChange={this.handleFormChange}></textarea>
                         </div>
-                        <button type="submit" className="btn btn-outline-primary">Submit</button>
+                        <button className="btn btn-outline-primary" onClick={this.handleClickSubmit}>Submit</button>
                     </form>
                 </div>
-                <div className="container d-flex flex-wrap">
+                <div className="d-flex flex-wrap">
                     {
-                        this.state.post.slice(0, 8).map(post => {
+                        this.state.post.slice(90).reverse().map(post => {
                             return <Post key={post.id} data={post} remove={this.handleRemove} />
                         })
                     }

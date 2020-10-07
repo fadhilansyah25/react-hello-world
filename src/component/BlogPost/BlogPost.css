@@ -2,9 +2,9 @@
     margin: 10px;
 }
 
-.remove-btn {
-    width: 10rem;
-    margin: 20px 15px;
+.remove-btn, .update-btn {
+    width: 9rem;
+    margin: 15px 10px;
 }
 
 .form-section {

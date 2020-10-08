@@ -9,8 +9,8 @@ const Post = (props) => {
                 <p className="card-text">{props.data.body}</p>
             </div>
             <div className="d-flex">
-            <button onClick={() => props.update(props.data)} className="btn btn-primary update-btn">Update</button>
-            <button onClick={() => props.remove(props.data.id)} className="btn btn-danger remove-btn">Remove</button>
+                <button onClick={() => props.update(props.data)} className="btn btn-primary update-btn">Update</button>
+                <button onClick={() => props.remove(props.data.id)} className="btn btn-danger remove-btn">Remove</button>
             </div>
         </div>
     )

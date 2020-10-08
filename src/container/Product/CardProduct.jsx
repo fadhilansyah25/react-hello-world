@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-export class Product extends Component {
+export class CardProduct extends Component {
     state = {
         order: 0
     }
@@ -64,4 +64,4 @@ export class Product extends Component {
     }
 }
 
-export default Product
+export default CardProduct

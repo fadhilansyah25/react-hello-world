@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../BlogPost/BlogPost.css';
 import Post from '../Post/Post';
-import { Fragment } from 'react';
 
 export default class BlogPost extends Component {
     state = {
         post: [],
         formBlogPost: {
-            userId : 1,
-            id : 1,
-            title : "",
-            body : ""
+            userId: 1,
+            id: 1,
+            title: "",
+            body: ""
         },
-        update : false
+        update: false
     }
 
     componentDidMount() {
@@ -44,8 +43,8 @@ export default class BlogPost extends Component {
     }
 
     handleFormChange = (event) => {
-        let formBlogPostNew = {...this.state.formBlogPost};
-        let timestamp  = new Date().getTime();
+        let formBlogPostNew = { ...this.state.formBlogPost };
+        let timestamp = new Date().getTime();
 
         if (!this.state.update) {
             formBlogPostNew['id'] = timestamp;
@@ -68,45 +67,45 @@ export default class BlogPost extends Component {
     }
 
     postDataToAPI = () => {
-        axios.post('http://localhost:3004/posts', this.state.formBlogPost )
-        .then((res) => {
-            console.log(res);
-            this.getPostAPI();
-            this.setState({
-                formBlogPost: {
-                    userId : 1,
-                    id : 1,
-                    title : "",
-                    body : ""
-                }
+        axios.post('http://localhost:3004/posts', this.state.formBlogPost)
+            .then((res) => {
+                console.log(res);
+                this.getPostAPI();
+                this.setState({
+                    formBlogPost: {
+                        userId: 1,
+                        id: 1,
+                        title: "",
+                        body: ""
+                    }
+                })
+            }, (err) => {
+                console.log('error : ', err);
             })
-        }, (err) => {
-            console.log('error : ', err);
-        })
     }
 
     putDataToAPI = () => {
         axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`, this.state.formBlogPost)
-        .then((res) => {
-            console.log(res);
-            this.getPostAPI();
-            this.setState({
-                formBlogPost: {
-                    userId : 1,
-                    id : 1,
-                    title : "",
-                    body : ""
-                },
-                update : false
+            .then((res) => {
+                console.log(res);
+                this.getPostAPI();
+                this.setState({
+                    formBlogPost: {
+                        userId: 1,
+                        id: 1,
+                        title: "",
+                        body: ""
+                    },
+                    update: false
+                })
             })
-        })
     }
 
     handleUpdate = (data) => {
         console.log(data);
         this.setState({
             formBlogPost: data,
-            update : true
+            update: true
         })
     }
 
@@ -114,8 +113,9 @@ export default class BlogPost extends Component {
 
     render() {
         return (
-            <Fragment>
-                <div className="form-section mb-5 mx-auto">
+            <div className="container">
+                <h3>Blog Post</h3>
+                <div className="form-section mb-5">
                     <form>
                         <div className="form-group mb-3">
                             <label htmlFor="title" className="mb-1">Title</label>
@@ -135,7 +135,7 @@ export default class BlogPost extends Component {
                         })
                     }
                 </div>
-            </Fragment>
+            </div>
         )
     }
 }

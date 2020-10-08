@@ -29,7 +29,7 @@ export default class LifeCycleComp extends Component {
         console.log('this State', this.state);
         if (nextState.count > 5) {
             return false;
-        }else {
+        } else {
             return true;
         }
     }
@@ -49,14 +49,18 @@ export default class LifeCycleComp extends Component {
 
     changeCount = () => {
         this.setState({
-            count : this.state.count + 1
+            count: this.state.count + 1
         })
     }
 
     render() {
         console.log('render');
         return (
-            <button className="btn btn-primary" onClick={this.changeCount}>Component Button {this.state.count}</button>
+            <div className="container">
+                <h1>Halaman LifeCycle</h1>
+                <hr />
+                <button className="btn btn-primary" onClick={this.changeCount}>Component Button {this.state.count}</button>
+            </div>
         )
     }
 }

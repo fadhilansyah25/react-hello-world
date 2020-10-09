@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CardProduct from '../container/Product/CardProduct';
+import CardProduct from '../../../component/CardProduct/CardProduct';
 import { BrowserRouter as Link } from 'react-router-dom';
 
 

@@ -1,9 +1,12 @@
-import React, { Component, Fragment } from 'react'
-import LifeCycleComp from '../LifeCycleComp/LifeCycleComp';
-import BlogPost from '../../component/BlogPost/BlogPost';
-import Product from '../../component/Product';
-import YoutubePage from '../YoutubePage/YoutubePage';
-import { BrowserRouter as Router, Route, Link, BrowserRouter } from 'react-router-dom';
+// Libraries
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+// Pages
+import LifeCycleComp from '../../component/LifeCycleComp/LifeCycleComp';
+import BlogPost from '../Pages/BlogPost/BlogPost';
+import Product from '../Pages/Product/Product';
+import YoutubePage from '../Pages/YoutubePage/YoutubePage';
 
 export class Home extends Component {
     state = {
@@ -20,7 +23,7 @@ export class Home extends Component {
 
     render() {
         return (
-            <BrowserRouter>
+            <Router>
                 <Fragment>
                     <div className="container">
                         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
@@ -51,7 +54,7 @@ export class Home extends Component {
                     <Route path="/LifeCycle" component={LifeCycleComp} />
                     <Route path="/YoutubePage" component={YoutubePage} />
                 </Fragment>
-            </BrowserRouter>
+            </Router>
         )
     }
 }

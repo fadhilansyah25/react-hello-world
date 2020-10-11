@@ -13,3 +13,7 @@
     border-radius: 15px;
     box-shadow: 0 5px 10px rgba(164, 164, 164, 0.313);
 }
+
+.card .card-title:hover {
+    cursor: pointer;
+}

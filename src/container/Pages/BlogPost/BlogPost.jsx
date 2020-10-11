@@ -109,7 +109,9 @@ export default class BlogPost extends Component {
         })
     }
 
-
+    handleDetail = (id) => {
+        this.props.history.push(`/details-post/${id}`);
+    }
 
     render() {
         return (
@@ -131,7 +133,7 @@ export default class BlogPost extends Component {
                 <div className="d-flex flex-wrap">
                     {
                         this.state.post.slice(90).reverse().map(post => {
-                            return <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} />
+                            return <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} goDetails={this.handleDetail} />
                         })
                     }
                 </div>

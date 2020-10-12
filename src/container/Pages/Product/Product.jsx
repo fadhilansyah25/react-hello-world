@@ -23,7 +23,7 @@ export class Navbar extends Component {
                         <div className="container-fluid">
                             <Link className="navbar-brand" to="#">
                                 Bootstrap
-                        </Link>
+                            </Link>
                             <p>{this.state.order}</p>
                         </div>
                     </nav>

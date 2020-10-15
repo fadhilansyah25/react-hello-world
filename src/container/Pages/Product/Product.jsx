@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import CardProduct from '../../../component/CardProduct/CardProduct';
 import { BrowserRouter as Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 
 export class Navbar extends Component {
-    state = {
-        order: 0,
-        name: "Fadil",
-    }
+    // state = {
+    //     order: 0,
+    //     name: "Fadil",
+    // }
 
-    handleCounterChange = (value) => {
-        this.setState({
-            order: value
-        })
-    }
+    // handleCounterChange = (value) => {
+    //     this.setState({
+    //         order: value
+    //     })
+    // }
 
     render() {
         return (
@@ -24,14 +24,20 @@ export class Navbar extends Component {
                             <Link className="navbar-brand" to="#">
                                 Bootstrap
                             </Link>
-                            <p>{this.state.order}</p>
+                            <p>{this.props.order}</p>
                         </div>
                     </nav>
-                    <CardProduct onCounterChange={(value) => this.handleCounterChange(value)} />
+                    <CardProduct/>
                 </div>
             </div>
         )
     }
 }
 
-export default Navbar
+const mapStoreToProps = (state) => {
+    return {
+        order: state.totalOrder
+    }
+}
+
+export default connect(mapStoreToProps) (Navbar);

@@ -13,7 +13,7 @@ export class CardProduct extends Component {
                         <div className="card-body">
                             <h5 className="card-title">Pempek Palembang</h5>
                             <p className="card-text">Rp. 34.000</p>
-                            <Counter onCounterChange={(value) => this.props.onCounterChange(value)}></Counter>
+                            <Counter></Counter>
                         </div>
                     </div>
                 </div>

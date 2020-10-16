@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ActionType from '../../Redux/Reducer/globalActionType';
 
 export class Counter extends Component {
     state = {
@@ -58,14 +59,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handlePlus: () => dispatch({ type: 'PLUS_ORDER' }),
-        handleMinus: () => dispatch({ type: 'MINUS_ORDER' }),
+        handlePlus: () => dispatch({ type: ActionType.PLUS_ORDER }),
+        handleMinus: () => dispatch({ type: ActionType.MINUS_ORDER }),
         inputChanged: (evt) => {
             let number = parseInt(evt.target.value);
             if (isNaN(number)) {
                 number = 0
             }
-            const action = { type: 'INPUT_CHANGE', value: number };
+            const action = { type: ActionType.INPUT_CHANGE, value: number };
             dispatch(action)
         }
     }

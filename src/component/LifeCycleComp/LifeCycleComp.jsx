@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { RootContext } from '../../container/Home/Home';
 // import { connect } from 'react-redux';
 
 class LifeCycleComp extends Component {
@@ -57,13 +58,21 @@ class LifeCycleComp extends Component {
     render() {
         console.log('render');
         return (
-            <div className="container">
-                <h1>Halaman LifeCycle</h1>
-                <hr />
-                <button className="btn btn-primary" onClick={this.changeCount}>Component Button {this.state.count}</button>
-                <hr/>
-                <p>Total Order : {0}</p>
-            </div>
+            <RootContext.Consumer>
+                {
+                    value => {
+                        return (
+                            <div className="container">
+                                <h1>Halaman LifeCycle</h1>
+                                <hr />
+                                <button className="btn btn-primary" onClick={this.changeCount}>Component Button {this.state.count}</button>
+                                <hr />
+                                <p>Total Order : {value.state.totalOrder}</p>
+                            </div>
+                        )
+                    }
+                }
+            </RootContext.Consumer>
         )
     }
 }

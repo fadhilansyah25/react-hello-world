@@ -46,12 +46,19 @@ export class Counter extends Component {
             <RootContext.Consumer>
                 {
                     value => {
-                        console.log(value);
+                        const inputChange = (event) => {
+                            let order = parseInt(event.target.value);
+                            if (isNaN(order)) {
+                                order = 0
+                            }
+                            value.dispatch({type: 'INPUT_CHANGE', value: order})
+                        }
+
                         return (
                             <div className="row">
-                                <button type="button" className="btn btn-primary button-minus col-2" onClick={() => { }}>-</button>
-                                <input type="text" style={{ textAlign: 'center' }} className="col" value={value.totalOrder} onChange={() => {}} />
-                                <button type="button" className="btn btn-primary button-plus col-2" onClick={() => { }}>+</button>
+                                <button type="button" className="btn btn-primary button-minus col-2" onClick={() => value.dispatch({type: 'MINUS_ORDER'})}>-</button>
+                                <input type="text" style={{ textAlign: 'center' }} className="col" value={value.state.totalOrder} onChange={inputChange} />
+                                <button type="button" className="btn btn-primary button-plus col-2" onClick={() => value.dispatch({type: 'PLUS_ORDER'})}>+</button>
                             </div>
                         )
                     }

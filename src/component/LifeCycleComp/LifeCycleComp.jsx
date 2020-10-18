@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 class LifeCycleComp extends Component {
     constructor(props) {
@@ -62,16 +62,16 @@ class LifeCycleComp extends Component {
                 <hr />
                 <button className="btn btn-primary" onClick={this.changeCount}>Component Button {this.state.count}</button>
                 <hr/>
-                <p>Total Order : {this.props.order}</p>
+                <p>Total Order : {0}</p>
             </div>
         )
     }
 }
 
-const mapStoreToProps = (state) => {
-    return {
-        order: state.totalOrder
-    }
-}
+// const mapStoreToProps = (state) => {
+//     return {
+//         order: state.totalOrder
+//     }
+// }
 
-export default connect(mapStoreToProps) (LifeCycleComp);
+export default LifeCycleComp;

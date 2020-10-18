@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CardProduct from '../../../component/CardProduct/CardProduct';
 import { BrowserRouter as Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 export class Navbar extends Component {
     // state = {
@@ -24,7 +24,7 @@ export class Navbar extends Component {
                             <Link className="navbar-brand" to="#">
                                 Bootstrap
                             </Link>
-                            <p>{this.props.order}</p>
+                            <p>{0}</p>
                         </div>
                     </nav>
                     <CardProduct/>
@@ -34,10 +34,10 @@ export class Navbar extends Component {
     }
 }
 
-const mapStoreToProps = (state) => {
-    return {
-        order: state.totalOrder
-    }
-}
+// const mapStoreToProps = (state) => {
+//     return {
+//         order: state.totalOrder
+//     }
+// }
 
-export default connect(mapStoreToProps) (Navbar);
+export default Navbar;

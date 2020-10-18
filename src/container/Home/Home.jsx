@@ -1,5 +1,5 @@
 // Libraries
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, createContext } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 // Pages
@@ -9,22 +9,21 @@ import DetailPost from '../Pages/BlogPost/DetailPost';
 import Product from '../Pages/Product/Product';
 import YoutubePage from '../Pages/YoutubePage/YoutubePage';
 
-export class Home extends Component {
-    state = {
-        showComponent: true
-    }
+// context
+export const RootContext = createContext();
+const Provider = RootContext.Provider;
 
-    componentDidMount() {
-        // setTimeout(() => {
-        //     this.setState({
-        //         showComponent: false
-        //     })
-        // }, 6000)
+
+export class Home extends Component {
+    // initial global state
+    state = {
+        totalOrder : 5
     }
 
     render() {
         return (
             <Router>
+                <Provider value={this.state}>
                 <Fragment>
                     <div className="container">
                         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
@@ -56,6 +55,7 @@ export class Home extends Component {
                     <Route path="/LifeCycle" component={LifeCycleComp} />
                     <Route path="/YoutubePage" component={YoutubePage} />
                 </Fragment>
+                </Provider>
             </Router>
         )
     }

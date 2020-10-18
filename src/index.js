@@ -3,18 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Home from './container/Home/Home';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducer from './Redux/Reducer/globalReducer';
+// import { createStore } from 'redux';
+// import { Provider } from 'react-redux';
+// import rootReducer from './Redux/Reducer/globalReducer';
 
 // Store
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Provider store={store}>
+//       <Home />
+//     </Provider>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
       <Home />
-    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

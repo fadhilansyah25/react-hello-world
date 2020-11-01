@@ -1,7 +1,7 @@
 import React, { Component, createContext } from 'react';
 
 // Create Context
-export const RootContext = createContext();
+const RootContext = createContext();
 
 // Provider
 const Provider = RootContext.Provider;
@@ -36,14 +36,16 @@ const GlobalProvider = (Children) => {
             }
 
             render() {
-                <Provider value={
-                    {
-                        state: this.state,
-                        dispatch: this.dispatch
-                    }
-                }>
-                    <Children {...this.props}/>
-                </Provider>
+                return (
+                    <Provider value={
+                        {
+                            state: this.state,
+                            dispatch: this.dispatch
+                        }
+                    }>
+                        <Children {...this.props} />
+                    </Provider>
+                )
             }
         }
     )
@@ -51,3 +53,23 @@ const GlobalProvider = (Children) => {
 export default GlobalProvider;
 
 // Consumer
+const Consumer = RootContext.Consumer;
+export const GlobalConsumer = (Children) => {
+    return (
+        class ParentConsumer extends Component {
+            render() {
+                return (
+                    <Consumer>
+                        {
+                            value => {
+                                return (
+                                    <Children {...this.props} {...value} />
+                                )
+                            }
+                        }
+                    </Consumer>
+                )
+            }
+        }
+    )
+}
